@@ -33,13 +33,18 @@
     <script>
         document.getElementById('searchForm').addEventListener('submit', async (e) => {
             e.preventDefault();
+            
+            // Hiển thị thông báo "Đang xử lý..."
+            document.getElementById('result').innerHTML = '<div class="text-center">Đang xử lý...</div>';
+
+            // Thu thập dữ liệu từ form
             const data = {
                 fullName: document.getElementById('fullName').value,
                 employeeId: document.getElementById('employeeId').value,
                 company: document.getElementById('company').value,
                 month: document.getElementById('month').value
             };
-            const response = await fetch('https://n8n.koutsourcing.vn/webhook-test/6c7db24f-c707-402e-8af7-e06035d3c9e8', {
+            const response = await fetch('https://n8n.koutsourcing.vn/webhook/6c7db24f-c707-402e-8af7-e06035d3c9e8', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
