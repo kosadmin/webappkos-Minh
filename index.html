@@ -17,16 +17,24 @@
         /* Đổi màu tiêu đề "Tra cứu lương" */
         .title {
             color: #B70E0E;
+            font-weight: 700; /* Bold */
         }
 
         /* Style cho nút Tra cứu */
         .btn-custom {
             background-color: #B70E0E;
             border-color: #B70E0E;
+            color: white; /* Chữ trắng */
+            font-weight: 700; /* Bold */
         }
         .btn-custom:hover {
-            background-color: #960b0b; /* Màu khi hover */
-            border-color: #960b0b;
+            background-color: #6E0606; /* Màu khi hover */
+            border-color: #6E0606;
+        }
+
+        /* Tăng cách lề gấp đôi */
+        .container {
+            padding: 40px; /* Gấp đôi từ 20px mặc định của Bootstrap */
         }
 
         /* Style cho khung thông báo */
@@ -51,6 +59,10 @@
 </head>
 <body>
     <div class="container mt-5">
+        <!-- Thêm logo trên tiêu đề -->
+        <div class="text-center mb-4">
+            <img src="https://ibb.co/8DQmrbRM" alt="Logo" style="max-width: 150px;">
+        </div>
         <h2 class="text-center title">TRA CỨU LƯƠNG</h2>
         <p class="text-center">Chính xác - Nhanh chóng - Chuyên nghiệp</p>
         <form id="searchForm">
