@@ -6,12 +6,27 @@
     <title>TRA CỨU LƯƠNG</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Đổi màu nền thành gradient tuyến tính, toàn font chữ thành Open Sans */
         body {
             font-family: 'Open Sans', sans-serif;
             background: linear-gradient(to bottom, #FBD72B 0%, #FF8038 100%);
             min-height: 100vh;
+            position: relative; /* Để hỗ trợ hình tròn nền */
+            overflow-x: hidden; /* Ngăn cuộn ngang nếu hình tròn vượt ra ngoài */
+        }
+        
+                /* Hình tròn mờ nền */
+        .background-circle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.3); /* Màu trắng mờ */
+            border-radius: 50%;
+            top: 50px; /* Cách đầu trang một chút */
+            left: -50px; /* Lệch về bên trái cạnh logo */
+            z-index: -1; /* Đặt dưới các yếu tố khác */
         }
 
         /* Đổi màu tiêu đề "Tra cứu lương" */
@@ -30,11 +45,22 @@
         .btn-custom:hover {
             background-color: #6E0606; /* Màu khi hover */
             border-color: #6E0606;
+            color: white; /* Chữ trắng */
+            font-weight: 700; /* Bold */
+        }
+        .btn-custom:active, .btn-custom:focus {
+            background-color: #6E0606; /* Giữ màu hover khi nhấn */
+            border-color: #6E0606;
+            color: white; /* Chữ trắng */
+            font-weight: 700; /* Bold */
+            opacity: 1; /* Loại bỏ hiệu ứng trong suốt */
+            box-shadow: none; /* Loại bỏ shadow mặc định khi nhấn */
         }
 
         /* Tăng cách lề gấp đôi */
         .container {
             padding: 40px; /* Gấp đôi từ 20px mặc định của Bootstrap */
+            position: relative; /* Để tương thích với hình tròn nền */
         }
 
         /* Style cho khung thông báo */
@@ -55,13 +81,34 @@
             font-weight: 700;
         }
         
+        /* Style cho chân trang */
+        .footer {
+            background-color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .footer h3 {
+            color: #B70E0E;
+            font-weight: 700;
+            font-size: 1.2em; /* Chữ to hơn nội dung thường */
+        }
+        .footer p {
+            font-weight: 700;
+            margin: 5px 0;
+        }
+        .footer i {
+            margin-right: 5px;
+        }
+
     </style>
 </head>
 <body>
+    <div class="background-circle"></div>
     <div class="container mt-3">
         <!-- Thêm logo trên tiêu đề -->
         <div class="text-center mb-4">
-            <img src="https://i.ibb.co/tM1HqzNB/480804443-599731112878748-2453286799952090831-n.jpg" alt="Logo" style="max-width: 100px; border-radius: 50%;">
+            <img src="https://i.ibb.co/tM1HqzNB/480804443-599731112878748-2453286799952090831-n.jpg" alt="Logo" style="max-width: 100px; border-radius: 40%;">
         </div>
         <h2 class="text-center title">TRA CỨU LƯƠNG</h2>
         <p class="text-center">Chính xác - Nhanh chóng - Chuyên nghiệp</p>
@@ -86,6 +133,12 @@
         </form>
         <div id="result" class="mt-3"></div>
     </div>
+    <!-- Thêm section chân trang -->
+    <footer class="footer">
+        <h3>VIỆC LÀM KOS</h3>
+        <p><i class="fas fa-globe"></i> Website: www.koutsourcing.vn</p>
+        <p><i class="fas fa-phone"></i> Hotline: 0397.013.122 (Ms. Nhung)</p>
+    </footer>
     <script>
         document.getElementById('searchForm').addEventListener('submit', async (e) => {
             e.preventDefault();
