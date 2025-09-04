@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRA CỨU LƯƠNG</title>
+    <title>Đơn Hàng</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,7 +11,7 @@
     <link
         rel="stylesheet"
         href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css"
-      >
+    >
 
     <link
         rel="stylesheet"
@@ -27,7 +27,6 @@
         rel="stylesheet"
         href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-light.css"
     >
-
     <link
         rel="stylesheet"
         href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone.css"
@@ -36,7 +35,6 @@
         rel="stylesheet"
         href="https://site-assets.fontawesome.com/releases/v6.7.2/css/brands.css"
     />
-
 </head>
 <body>
     <div class="container-page">
@@ -58,12 +56,34 @@
                     <a href=""><span>Liên hệ</span><i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
+
+            <div class="hamburger-div">
+                <div class="navigation">
+                    <button class="hamburger" onclick="menuFunction()">
+                        <div id="bar1" class="bar"></div>
+                        <div id="bar2" class="bar"></div>
+                        <div id="bar3" class="bar"></div>
+                    </button>
+    
+                    <nav>
+                        <ul>
+                            <li><a href="trangchu.html">Trang Chủ</a></li>
+                            <li><a href="tracuuluong.html">Tra Cứu Lương</a></li>
+                            <li><a href="donhang.html">Đơn Hàng</a></li>
+                            <li><a href="ungluong.html">Ứng Lương</a></li>
+                            <li><a href="gioithieu.html">Giới Thiệu</a></li>
+                        </ul>
+                    </nav>
+    
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="background-circle"></div>
-    <div class="container mt-3">
+    <div class="container">
         <h2 class="text-center title">Đơn hàng</h2>
-        <h3>Các vị trí đang tuyển dụng</h3>
+        <h3 style="text-align: center;">Các vị trí đang tuyển dụng</h3>
         <div class="job-container">
             <hr style="height:2px;border-width:0;color:gray;background-color:gray">
             <div class="open-position">
@@ -108,7 +128,6 @@
         <p><i class="fas fa-globe"></i> Website: www.koutsourcing.vn</p>
         <p><i class="fas fa-phone"></i> Hotline: 0397.013.122 (Ms. Nhung)</p>
     </footer>
-    <script>
-    </script>
+    <script src="./js/hamburger-btn.js"></script>
 </body>
 </html>

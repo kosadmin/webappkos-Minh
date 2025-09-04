@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng Lương</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container-page">
+        <div class="page-header">
+            <div class="text-center">
+                <a href="trangchu.html">
+                    <img src="https://koutsourcing.vn/wp-content/uploads/2024/12/Logo-xam-vang-chu-den-e1733901941396.png" alt="Logo" style="max-width: 100px;">
+                </a>
+            </div>
+            <div class="link-page">
+                <div class="web-link"><a href="trangchu.html">Trang Chủ</a></div>
+                <div class="web-link"><a href="tracuuluong.html">Tra Cứu Lương</a></div>
+                <div class="web-link"><a href="donhang.html">Đơn Hàng</a></div>
+                <div class="web-link"><a href="ungluong.html">Ứng Lương</a></div>
+                <div class="web-link"><a href="gioithieu.html">Giới Thiệu</a></div>
+            </div>
+            <div class="contact-btn">
+                <div class="contact-link">
+                    <a href=""><span>Liên hệ</span><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="hamburger-div">
+                <div class="navigation">
+                    <button class="hamburger" onclick="menuFunction()">
+                        <div id="bar1" class="bar"></div>
+                        <div id="bar2" class="bar"></div>
+                        <div id="bar3" class="bar"></div>
+                    </button>
+    
+                    <nav>
+                        <ul>
+                            <li><a href="trangchu.html">Trang Chủ</a></li>
+                            <li><a href="tracuuluong.html">Tra Cứu Lương</a></li>
+                            <li><a href="donhang.html">Đơn Hàng</a></li>
+                            <li><a href="ungluong.html">Ứng Lương</a></li>
+                            <li><a href="gioithieu.html">Giới Thiệu</a></li>
+                        </ul>
+                    </nav>
+    
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="background-circle"></div>
+    <div class="container">
+        <!-- Thêm logo trên tiêu đề -->
+        <h2 class="text-center title">Ứng Lương</h2>
+        <p class="text-center">Chính xác - Nhanh chóng - Chuyên nghiệp</p>
+        <div class="form-container">
+            <form id="searchForm">
+                <div class="form-att">
+                    <label for="fullName" class="form-label">Họ tên</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Tên đầy đủ" required>
+                </div>
+                <div class="form-att">
+                    <label for="employeeId" class="form-label">Mã nhân viên</label>
+                    <input type="text" class="form-control" id="employeeId" placeholder="Mã nhân viên" required>
+                </div>
+                <div class="form-att">
+                    <label for="company" class="form-label">Công ty</label>
+                    <input type="text" class="form-control" id="company" required>
+                </div>
+                <div class="form-att">
+                    <label for="salary" class="form-label">Số tiền ứng trước</label>
+                    <input type="text" class="form-control" id="salary" required>
+                </div>
+                <div class="form-att">
+                    <button type="submit" class="btn btn-custom w-100">Ứng Lương</button>
+                </div>
+            </form>
+        </div>
+        <div id="result" class="mt-3" style="opacity: 0;"></div>
+    </div>
+    <!-- Thêm section chân trang -->
+    <footer class="footer">
+        <h3>VIỆC LÀM KOS</h3>
+        <p><i class="fas fa-globe"></i> Website: www.koutsourcing.vn</p>
+        <p><i class="fas fa-phone"></i> Hotline: 0397.013.122 (Ms. Nhung)</p>
+    </footer>
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Hiển thị thông báo "Đang xử lý..." với spinner
+            document.getElementById('result').innerHTML = '<div class="text-center"><div class="spinner-border" role="status"></div> Đang xử lý...</div>';
+
+            // Thu thập dữ liệu từ form
+            const data = {
+                fullName: document.getElementById('fullName').value,
+                employeeId: document.getElementById('employeeId').value,
+                company: document.getElementById('company').value,
+                month: document.getElementById('month').value
+            };
+            const response = await fetch('https://n8n.koutsourcing.vn/webhook/6c7db24f-c707-402e-8af7-e06035d3c9e8', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            document.getElementById('result').innerHTML = result.message; // Sử dụng innerHTML thay vì innerText
+        });
+    </script>
+    <script src="./js/hamburger-btn.js"></script>
+</body>
+</html>
